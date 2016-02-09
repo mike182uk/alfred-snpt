@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+echo "Checking dependencies..."
+
+NODE=$(which node)
+FZF=$(which fzf)
+SNPT=$(which snpt)
+
+if [ -z "$NODE" ]; then
+  echo "node was not found" && exit 1
+fi
+
+if [ -z "$FZF" ]; then
+  echo "fzf was not found" && exit 1
+fi
+
+if [ -z "$SNPT" ]; then
+  echo "snpt was not found" && exit 1
+fi
+
+echo "Updating workflow scripts..."
+
+sed -i '' 's|{node}|'$NODE'|g' info.plist
+sed -i '' 's|{fzf}|'$FZF'|g' info.plist
+sed -i '' 's|{snpt}|'$SNPT'|g' info.plist
+
+echo "Creating workflow..."
+
+rm Snpt.alfredworkflow
+
+zip -rq Snpt.alfredworkflow \
+  index.js \
+  node_modules \
+  info.plist
+
+echo "Done!"
