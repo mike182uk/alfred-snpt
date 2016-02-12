@@ -2,7 +2,9 @@ var getStdin = require('get-stdin');
 
 getStdin().then(function(input) {
   var items = input.split('\n').map(function(snippet) {
-    if (!snippet) return;
+    if (!snippet) {
+      return;
+    }
 
     var item = '<item arg="' + snippet + '">';
     item += '<title>' + getTitle(snippet) + '</title>';

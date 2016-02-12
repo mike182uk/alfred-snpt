@@ -1,5 +1,11 @@
 {
+  "scripts": {
+    "cs": "jscs index.js"
+  },
   "dependencies": {
     "get-stdin": "^5.0.1"
+  },
+  "devDependencies": {
+    "jscs": "^2.9.0"
   }
 }
