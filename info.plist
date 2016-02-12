@@ -137,7 +137,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo "{query}" | grep -io '^.*-' | tr -d ' -' | tr -d '\n'</string>
+				<string>echo "{query}" | grep -io '^.*\s-' | rev | cut -c 3- | rev | tr -d '\n'</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>

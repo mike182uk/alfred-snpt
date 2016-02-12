@@ -18,11 +18,11 @@ getStdin().then(function(input) {
 });
 
 function getTitle(snippet) {
-  return snippet.substring(0, snippet.lastIndexOf('-') - 1);
+  return snippet.substring(0, snippet.lastIndexOf(' - '));
 }
 
 function getSubTitle(snippet) {
   snippet = snippet.replace(/(\[(.*)\])/, '').trim();
 
-  return snippet.substring(snippet.lastIndexOf('-') + 2);
+  return snippet.substring(snippet.lastIndexOf(' - ') + 3);
 }
