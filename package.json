@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "cs": "jscs index.js"
+    "cs": "jscs index.js",
+    "build": "./bin/build"
   },
   "dependencies": {
     "get-stdin": "^5.0.1"

@@ -4,13 +4,13 @@ An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/m
 
 ![](example.gif)
 
-# Prerequisites
+## Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 - [Snpt](https://github.com/mike182uk/snpt)
 - [FZF](https://github.com/junegunn/fzf)
 
-# Installation
+## Installation
 
 Clone this repo
 
@@ -18,21 +18,21 @@ Clone this repo
 git clone https://github.com/mike182uk/snpt-alfred-workflow.git
 ```
 
-Install dependencies
+Install dependencies (use `--production` flag to not install dev-dependencies)
 
 ```
-npm install
+npm install --production
 ```
 
 Build the workflow
 
 ```
-./bin/build
+npm run build
 ```
 
-After you have built the workflow you should have see a file called `Snpt.alfredworkflow`. Double click this file to import it into Alfred.
+After you have built the workflow you should see a file called `Snpt.alfredworkflow` in the root directory. Double click this file to import it into Alfred.
 
-# Usage
+## Usage
 
 1. Trigger Alfred
 2. Type `snpt` and press enter or tab
@@ -41,14 +41,14 @@ After you have built the workflow you should have see a file called `Snpt.alfred
 
 A notification will be displayed once the snippet has been copied to the clipboard.
 
-# FAQ
+## FAQ's
 
-### Why do i have to build the workflow? Why can't i just download a pre-built workflow?
+### Why do i have to build the workflow? Can i not just download a pre-built workflow?
 
-Alfred does not know where `node`, `fzf` or `snpt` is installed too. As part of building the workflow, any references to these bins in the workflow scripts are replaced with the correct path to the bin for your system.
+Alfred does not know the location of the `node`, `fzf` or `snpt` binaries on your system. As part of building the workflow, any references to these binaries in the workflow scripts are replaced with the correct path to the binary on your system.
 
-# Troubleshooting
+## Troubleshooting
 
-### The workflow has stopped working, what do i do?
+### The workflow has stopped working
 
-Try re-building the workflow and re-installing it. It may be that one of the required bins has moved or upgraded which will have invalidated the path to it in the workflow scripts.
+Try re-building the workflow and re-installing it. It may be that one of the required binaries has moved or been upgraded which will have invalidated the path to it in one of the workflow scripts.

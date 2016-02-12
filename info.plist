@@ -57,7 +57,7 @@
 				<key>escaping</key>
 				<integer>111</integer>
 				<key>script</key>
-				<string>echo "{query}" | /Users/mike/.nvm/versions/node/v5.3.0/bin/node /Users/mike/.nvm/versions/node/v5.3.0/bin/snpt cp</string>
+				<string>echo "{query}" | {node_bin} {snpt_bin} cp</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -88,7 +88,7 @@
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>/Users/mike/.nvm/versions/node/v5.3.0/bin/node /Users/mike/.nvm/versions/node/v5.3.0/bin/snpt ls | /usr/local/bin/fzf -f "{query}" | /Users/mike/.nvm/versions/node/v5.3.0/bin/node index.js
+				<string>{node_bin} {snpt_bin} ls | {fzf_bin} -f "{query}" | {node_bin} index.js
 </string>
 				<key>title</key>
 				<string>Search for a snippet</string>

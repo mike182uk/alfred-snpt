@@ -2,35 +2,37 @@
 
 echo "Checking dependencies..."
 
-NODE=$(which node)
-FZF=$(which fzf)
-SNPT=$(which snpt)
+NODE_BIN=$(which node)
+FZF_BIN=$(which fzf)
+SNPT_BIN=$(which snpt)
 
-if [ -z "$NODE" ]; then
+if [ -z "$NODE_BIN" ]; then
   echo "node was not found" && exit 1
 fi
 
-if [ -z "$FZF" ]; then
+if [ -z "$FZF_BIN" ]; then
   echo "fzf was not found" && exit 1
 fi
 
-if [ -z "$SNPT" ]; then
+if [ -z "$SNPT_BIN" ]; then
   echo "snpt was not found" && exit 1
 fi
 
+echo "Copying files..."
+
+rm -rf build
+mkdir build
+cp -r {info.plist,node_modules,index.js} build
+
 echo "Updating workflow scripts..."
 
-sed -i '' 's|{node}|'$NODE'|g' info.plist
-sed -i '' 's|{fzf}|'$FZF'|g' info.plist
-sed -i '' 's|{snpt}|'$SNPT'|g' info.plist
+sed -i '' 's|{node_bin}|'$NODE_BIN'|g' build/info.plist
+sed -i '' 's|{fzf_bin}|'$FZF_BIN'|g' build/info.plist
+sed -i '' 's|{snpt_bin}|'$SNPT_BIN'|g' build/info.plist
 
-echo "Creating workflow..."
+echo "Building workflow..."
 
-rm Snpt.alfredworkflow
-
-zip -rq Snpt.alfredworkflow \
-  index.js \
-  node_modules \
-  info.plist
+rm -rf Snpt.alfredworkflow
+cd build && zip -rq ../Snpt.alfredworkflow *
 
 echo "Done!"
