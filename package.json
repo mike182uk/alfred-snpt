@@ -1,4 +1,16 @@
 {
+  "name": "snpt-alfred-workflow",
+  "version": "1.0.0",
+  "description": "An Alfred workflow for Snpt",
+  "main": "index.js",
+  "author": "Michael David Barrett <mike182uk@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mike182uk/snpt-alfred-workflow.git"
+  },
+  "homepage": "https://github.com/mike182uk/snpt-alfred-workflow",
   "scripts": {
     "cs": "jscs index.js",
     "build": "./bin/build"
