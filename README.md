@@ -1,4 +1,4 @@
-# snpt-alfred-workflow
+# <img src="icon.png" height="22"> snpt-alfred-workflow
 
 An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/mike182uk/snpt)
 

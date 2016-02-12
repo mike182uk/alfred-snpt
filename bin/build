@@ -22,7 +22,7 @@ echo "Copying files..."
 
 rm -rf build
 mkdir build
-cp -r {info.plist,node_modules,index.js} build
+cp -r {info.plist,node_modules,index.js,icon.png} build
 
 echo "Updating workflow scripts..."
 
