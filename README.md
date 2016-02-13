@@ -1,4 +1,4 @@
-# <img src="icon.png" height="22"> snpt-alfred-workflow
+# <img src="src/icon.png" height="24"> snpt-alfred-workflow
 
 [![Version](https://img.shields.io/npm/v/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
 [![npm](https://img.shields.io/npm/dm/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
@@ -22,13 +22,13 @@ Install the Snpt Alfred workflow builder:
 npm install -g snpt-alfred-workflow
 ```
 
-Build the workflow by running:
+Build the workflow:
 
 ```
 snpt-alfred-workflow
 ```
 
-After you have built the workflow you should see a file called `Snpt.alfredworkflow` in the directory you ran the above command in. Double click this file to import it into Alfred.
+After you have built the workflow you should see a file called `Snpt.alfredworkflow` in the current directory. Double click this file to import the workflow into Alfred.
 
 ## Usage
 
