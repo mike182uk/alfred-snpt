@@ -11,7 +11,7 @@
   },
   "homepage": "https://github.com/mike182uk/snpt-alfred-workflow",
   "scripts": {
-    "cs": "jscs src",
+    "sa": "jscs src && jshint src",
     "build": "./bin/build"
   },
   "keywords": [
@@ -27,6 +27,7 @@
     "get-stdin": "^5.0.1"
   },
   "devDependencies": {
-    "jscs": "^2.9.0"
+    "jscs": "^2.9.0",
+    "jshint": "^2.9.1"
   }
 }

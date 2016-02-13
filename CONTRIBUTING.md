@@ -6,7 +6,7 @@ Contributions can be made via a Pull Request on [Github](https://github.com/mike
 
 ## Pull Requests
 
-- **[Node coding style](https://github.com/felixge/node-style-guide)** - [JSCS](http://jscs.info/). Make sure you run `npm run cs` before committing your code.
+- **[Node coding style](https://github.com/felixge/node-style-guide)** - [JSCS](http://jscs.info/). Make sure you run `npm run sa` before committing your code.
 
 - **Document any change in behavior** - Make sure the README and any other relevant documentation are kept up-to-date.
 
