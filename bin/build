@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+MODULE_DIR=`npm config get prefix`/lib/node_modules/snpt-alfred-workflow
+
 echo "Checking dependencies..."
 
-NODE_BIN=$(which node)
-FZF_BIN=$(which fzf)
-SNPT_BIN=$(which snpt)
+NODE_BIN=`which node`
+FZF_BIN=`which fzf`
+SNPT_BIN=`which snpt`
 
 if [ -z "$NODE_BIN" ]; then
   echo "node was not found" && exit 1
@@ -20,19 +22,25 @@ fi
 
 echo "Copying files..."
 
-rm -rf build
-mkdir build
-cp -r {info.plist,node_modules,index.js,icon.png} build
+BUILD_DIR=`mktemp -d`
+cp ${MODULE_DIR}/src/* ${BUILD_DIR}
+mkdir ${BUILD_DIR}/node_modules
+cp -r ${MODULE_DIR}/node_modules/get-stdin ${BUILD_DIR}/node_modules/get-stdin
 
 echo "Updating workflow scripts..."
 
-sed -i '' 's|{node_bin}|'$NODE_BIN'|g' build/info.plist
-sed -i '' 's|{fzf_bin}|'$FZF_BIN'|g' build/info.plist
-sed -i '' 's|{snpt_bin}|'$SNPT_BIN'|g' build/info.plist
+sed -i '' 's|{node_bin}|'${NODE_BIN}'|g' "$BUILD_DIR/info.plist"
+sed -i '' 's|{fzf_bin}|'${FZF_BIN}'|g' "$BUILD_DIR/info.plist"
+sed -i '' 's|{snpt_bin}|'${SNPT_BIN}'|g' "$BUILD_DIR/info.plist"
 
 echo "Building workflow..."
 
+CURRENT_DIR=`pwd`
 rm -rf Snpt.alfredworkflow
-cd build && zip -rq ../Snpt.alfredworkflow *
+cd ${BUILD_DIR} && zip -rq "$CURRENT_DIR/Snpt.alfredworkflow" *
+
+echo "Cleaning up..."
+
+rm -rf ${BUILD_DIR}
 
 echo "Done!"

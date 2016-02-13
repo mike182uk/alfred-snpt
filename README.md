@@ -12,25 +12,19 @@ An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/m
 
 ## Installation
 
-Clone this repo
+Install the Snpt Alfred workflow builder:
 
 ```
-git clone https://github.com/mike182uk/snpt-alfred-workflow.git
+npm install -g snpt-alfred-workflow
 ```
 
-Install dependencies (use `--production` flag to not install dev-dependencies)
+Build the workflow:
 
 ```
-npm install --production
+snpt-alfred-workflow
 ```
 
-Build the workflow
-
-```
-npm run build
-```
-
-After you have built the workflow you should see a file called `Snpt.alfredworkflow` in the root directory. Double click this file to import it into Alfred.
+After you have built the workflow you should see a file called `Snpt.alfredworkflow` in the current directory. Double click this file to import it into Alfred.
 
 ## Usage
 
