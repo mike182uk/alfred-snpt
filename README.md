@@ -1,6 +1,7 @@
 # <img src="src/icon.png" height="24"> snpt-alfred-workflow
 
 [![Version](https://img.shields.io/npm/v/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
+[![Build Status](https://img.shields.io/travis/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt-alfred-workflow)
 [![npm](https://img.shields.io/npm/dm/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
 [![License](https://img.shields.io/github/license/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
 

@@ -11,8 +11,7 @@
   },
   "homepage": "https://github.com/mike182uk/snpt-alfred-workflow",
   "scripts": {
-    "sa": "jscs src && jshint src",
-    "build": "./bin/build"
+    "sa": "jscs src && jshint src"
   },
   "keywords": [
     "gist",
