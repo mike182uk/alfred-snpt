@@ -4,6 +4,7 @@
 [![Build Status](https://img.shields.io/travis/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt-alfred-workflow)
 [![npm](https://img.shields.io/npm/dm/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
 [![License](https://img.shields.io/github/license/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 
 An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/mike182uk/snpt)
 
