@@ -10,6 +10,9 @@
     "url": "git://github.com/mike182uk/snpt-alfred-workflow.git"
   },
   "homepage": "https://github.com/mike182uk/snpt-alfred-workflow",
+  "bugs": {
+    "url": "https://github.com/mike182uk/snpt-alfred-workflow/issues"
+  },
   "scripts": {
     "sa": "jscs src && jshint src"
   },
