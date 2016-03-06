@@ -22,6 +22,9 @@
   "bin": {
     "snpt-alfred-workflow": "./bin/build"
   },
+  "engines": {
+    "node": ">=0.10"
+  },
   "dependencies": {
     "get-stdin": "^5.0.1"
   },
