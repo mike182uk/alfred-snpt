@@ -33,7 +33,8 @@
   },
   "devDependencies": {
     "cz-conventional-changelog": "^1.1.5",
-    "jscs": "^2.10.1"
+    "jscs": "^2.10.1",
+    "jshint": "^2.9.2"
   },
   "config": {
     "commitizen": {
