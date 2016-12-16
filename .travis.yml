@@ -14,4 +14,4 @@ cache:
     - node_modules
 
 script:
-  - npm run sa
+  - npm run lint

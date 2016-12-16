@@ -10,9 +10,9 @@ Please report issues via the issue tracker on [Github](https://github.com/mike18
 
 ## Pull Requests
 
-- **[Node.js coding style](https://github.com/felixge/node-style-guide)** - [JSCS](http://jscs.info/), [JSHint](http://jshint.com/). Make sure you run `npm run sa` before committing your code.
+- **[Standard JS coding style](http://standardjs.com/index.html)** - Make sure you run `npm run lint` before committing your code.
 
-- **Document any change in behavior** - Make sure the README and any other relevant documentation are kept up-to-date.
+- **Document any change in behaviour** - Make sure the README and any other relevant documentation are kept up-to-date.
 
 - **Create topic branches** - i.e `feature/some-awesome-feature`.
 
