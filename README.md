@@ -1,53 +1,54 @@
-# <img src="src/icon.png" height="24"> snpt-alfred-workflow
+# <img src="resources/icon.png" height="24"> Snpt Alfred Workflow
 
-[![Version](https://img.shields.io/npm/v/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
+[![Version](https://img.shields.io/github/release/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
 [![Build Status](https://img.shields.io/travis/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt-alfred-workflow)
-[![npm](https://img.shields.io/npm/dm/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
-[![License](https://img.shields.io/github/license/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://www.npmjs.com/package/snpt-alfred-workflow)
+[![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt-alfred-workflow/total.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
+[![License](https://img.shields.io/github/license/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
 
-An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/mike182uk/snpt)
+An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/mike182uk/snpt-go).
 
 ![](example.gif)
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/en/)
-- [Snpt](https://github.com/mike182uk/snpt)
-- [FZF](https://github.com/junegunn/fzf)
+- [Snpt](https://github.com/mike182uk/snpt-go)
+- [fzf](https://github.com/junegunn/fzf)
 
 ## Installation
 
-Install the Snpt Alfred workflow builder:
-
-```
-npm install -g snpt-alfred-workflow
-```
-
-Build the workflow:
-
-```
-snpt-alfred-workflow
-```
-
-After you have built the workflow you should see a file called `Snpt.alfredworkflow` in the current directory. Double click this file to import the workflow into Alfred.
+Download the latest version of the workflow from  [here](https://github.com/mike182uk/snpt-alfred-workflow/releases).
 
 ## Usage
 
 1. Trigger Alfred
 2. Type `snpt` and press enter or tab
 3. Start typing the name of the snippet you want to copy
-4. Press enter on the snippet you want to copy
+4. Use the up / down key to navigate to the snippet you want to copy
+5. Press enter on the snippet you want to copy
 
 A notification will be displayed once the snippet has been copied to the clipboard.
 
-## FAQ's
-
-### Why do i have to build the workflow? Can i not just download a pre-built workflow?
-
-Alfred does not know the location of the `node`, `fzf` or `snpt` binaries on your system. As part of building the workflow, any references to these binaries in the workflow scripts are replaced with the correct path to the binary on your system.
-
 ## Troubleshooting
 
-### The workflow has stopped working
+### The workflow is reporting that `snpt` or `fzf` can not be found
 
-Try re-building the workflow and re-installing it. It may be that one of the required binaries has moved or been upgraded which will have invalidated the path to it in one of the workflow scripts.
+The workflow will search for the `snpt` / `fzf` in:
+
+- `/usr/local/bin/`
+- `/usr/bin`
+- `/bin`
+- `/usr/sbin`
+- `/sbin`
+
+If you have installed `snpt` / `fzf` to a different location you will need to modify the workflow to use this path:
+
+1. Go to Alfred preferences
+2. Select the Snpt workflow
+3. Double click on the `Script Filter` node
+4. In the script field, you should see `export PATH=/usr/local/bin/:$PATH` at the top of the field. Modify this to include your path for `snpt` / `fzf`:
+
+```
+export PATH=/usr/local/bin/:/my/custom/path/bin/:$PATH
+```
+
+Repeat the above for each `Run Script` node in the Alfred workflow

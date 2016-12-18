@@ -40,7 +40,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Michael Barrett</string>
+	<string>Michael Barrett (@mike182uk)</string>
 	<key>description</key>
 	<string>Find a snippet using snpt</string>
 	<key>disabled</key>
@@ -57,7 +57,9 @@
 				<key>escaping</key>
 				<integer>111</integer>
 				<key>script</key>
-				<string>echo "{query}" | {node_bin} {snpt_bin} cp</string>
+				<string>export PATH=/usr/local/bin/:$PATH
+
+./snpt-alfred-workflow cp "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -88,7 +90,9 @@
 				<key>runningsubtext</key>
 				<string>Searching...</string>
 				<key>script</key>
-				<string>{node_bin} {snpt_bin} ls | {fzf_bin} -f "{query}" | {node_bin} index.js
+				<string>export PATH=/usr/local/bin/:$PATH
+
+./snpt-alfred-workflow search "{query}"
 </string>
 				<key>title</key>
 				<string>Search for a snippet</string>
@@ -137,7 +141,9 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo "{query}" | grep -io '^.*\s-' | rev | cut -c 3- | rev | tr -d '\n'</string>
+				<string>export PATH=/usr/local/bin/:$PATH
+
+./snpt-alfred-workflow title "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>

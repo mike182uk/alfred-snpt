@@ -1,19 +1,32 @@
-language: node_js
+language: go
 
-node_js:
-  - stable
-  - v0.10
-  - v0.12
-  - v4
-  - v5
-  - v6
-  - v7
+go:
+  - 1.7
+  - tip
 
 sudo: false
 
-cache:
-  directories:
-    - node_modules
+before_script:
+  - make install-env-deps
+  - make install
 
 script:
-  - npm run lint
+  - make lint
+  - make test
+  - make build-helper && make clean
+
+after_success:
+  - if [ -n "$TRAVIS_TAG" ]; then make build; fi;
+
+matrix:
+  allow_failures:
+    - go: tip
+
+deploy:
+  provider: releases
+  api_key:
+    secure: nLr1vjIg3sJqzS011sQOoO3WXHI7/3T+6pErcuLZyqc6jy2fbV04GGDjs5P4UfXQkUWZfI7ahlJRbyryaCuA/tOIFGxV3pWm+V8RZG4Ltq6VX2EK22hjQZovnrbbKJwdEa/6EOCvO/2WlDWxY/kpTnI6mL5kmKdJ2cD3jLDPt9hIqWvwMwk5asEKxa+blPVvy4Baeb5AM4wrW/rD2DR1udJU4NOg7l/Fs92ejhN/2gP3XXnwdH5lxhWGQdKLpMK2OKAQseIwmuvTgAPQw86BiSp/HaHYCr/lxFQf59HYT6qxpObjvBC3FkmnTr8N2eUfnb2kLpCI7xj/8pkinf/zYBefq76ZNilRd1rouFo+fP3jQHtczE9wUmq4EeWbVr6NGR9RFbIRGhrXE10R/93x4lj1d7HmkXT0gl5VGU0Nc/bvCjK/8P4uU3TeBzfi/emXslZ4K7u5SPkS5x1Ur1g/jvd70HzZrsgVhepMDtbB5BMO68ZifltbwVHF8d1fQ4GxMVDTLjFQWozLKAhO1KW//axC/TvF/Ugz5zxSdJWfjrrcBLdOeGhDwQZevdf+L+Agl2LggfzBkLU4Jh5DSjinhIcxhNaJlE9hUeGEFyeAus+zpoHW+ZRITbCsyYhKidkpt7w0CPWqgBjJPGK36wxHmftZzporPaJ1IGx16hRnZmM=
+  file: build/Snpt.alfredworkflow
+  skip_cleanup: true
+  on:
+    tags: true

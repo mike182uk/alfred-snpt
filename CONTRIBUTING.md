@@ -10,7 +10,7 @@ Please report issues via the issue tracker on [Github](https://github.com/mike18
 
 ## Pull Requests
 
-- **[Standard JS coding style](http://standardjs.com/index.html)** - Make sure you run `npm run lint` before committing your code.
+- **Lint changes** - Make sure you run `make lint` before committing your code.
 
 - **Document any change in behaviour** - Make sure the README and any other relevant documentation are kept up-to-date.
 
@@ -19,3 +19,30 @@ Please report issues via the issue tracker on [Github](https://github.com/mike18
 - **One pull request per feature**
 
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please squash them before submitting.
+
+## Install project dependencies
+
+```bash
+make install-env-deps
+make install
+```
+
+You will need to do this before you make any changes.
+
+## Running the Tests
+
+```bash
+make test
+```
+
+## Building the Helper
+
+```bash
+make build-helper
+```
+
+## Building the Workflow
+
+```bash
+make build-workflow
+```
