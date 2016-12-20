@@ -5,7 +5,7 @@ WORKFLOW_HELPER_SRC_DIR=./workflow-helper/src/
 RESOURCES_DIR=./resources
 
 .PHONY: default
-default: build-workflow
+default: build
 
 .PHONY: test
 test:
@@ -28,7 +28,7 @@ build-workflow: build-helper
 	cd $(BUILD_DIR) && zip -rq $(WORKFLOW_PACKAGE) *
 
 .PHONY: build
-build: build-helper build-workflow
+build: build-workflow
 
 .PHONY: clean
 clean:
