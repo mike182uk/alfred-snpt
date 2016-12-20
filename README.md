@@ -32,7 +32,7 @@ A notification will be displayed once the snippet has been copied to the clipboa
 
 ### The workflow is reporting that `snpt` or `fzf` can not be found
 
-The workflow will search for the `snpt` / `fzf` in:
+The workflow will search for `snpt` / `fzf` in:
 
 - `/usr/local/bin/`
 - `/usr/bin`
@@ -51,4 +51,4 @@ If you have installed `snpt` / `fzf` to a different location you will need to mo
 export PATH=/usr/local/bin/:/my/custom/path/bin/:$PATH
 ```
 
-Repeat the above for each `Run Script` node in the Alfred workflow
+Repeat the above for each `Run Script` node in the Alfred workflow.
