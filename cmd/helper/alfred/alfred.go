@@ -1,9 +1,9 @@
-package main
+package helper
 
 import (
 	"encoding/xml"
-	"regexp"
-	"strings"
+
+	snippetHelper "github.com/mike182uk/snpt-alfred-workflow/cmd/helper/snippet"
 )
 
 type itemList struct {
@@ -18,12 +18,13 @@ type itemListItem struct {
 	Icon     string `xml:"icon,omitempty"`
 }
 
-func generateSnippetsItemList(items []string) string {
+// GenerateSnippetsItemList generates an XML item list for use by Alfred
+func GenerateSnippetsItemList(items []string) string {
 	list := itemList{}
 
 	for _, i := range items {
-		t := extractSnippetTitle(i)
-		st := extractSnippetSubTitle(i)
+		t := snippetHelper.ExtractSnippetTitle(i)
+		st := snippetHelper.ExtractSnippetSubTitle(i)
 
 		// if item is a new line or does not have a title or subtitle, skip it
 		if i == "\n" || t == "" || st == "" {
@@ -46,7 +47,8 @@ func generateSnippetsItemList(items []string) string {
 	return string(output)
 }
 
-func generateErrorItemList(title string, subtitle string) string {
+// GenerateErrorItemList generates an XML error item list for use by Alfred
+func GenerateErrorItemList(title string, subtitle string) string {
 	list := itemList{}
 	item := itemListItem{}
 
@@ -66,26 +68,4 @@ func generateErrorItemList(title string, subtitle string) string {
 	}
 
 	return string(output)
-}
-
-func extractSnippetTitle(s string) string {
-	i := strings.Index(s, " - ")
-
-	if i == -1 {
-		return ""
-	}
-
-	return s[0:i]
-}
-
-func extractSnippetSubTitle(s string) string {
-	r := regexp.MustCompile(`[[A-Za-z0-9]+]`)
-	s = strings.TrimRight(r.ReplaceAllString(s, ""), " ")
-	i := strings.LastIndex(s, " - ")
-
-	if i == -1 {
-		return ""
-	}
-
-	return s[(i + 3):]
 }

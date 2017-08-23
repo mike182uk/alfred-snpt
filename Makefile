@@ -1,31 +1,33 @@
+BIN=snpt-alfred-workflow
+BIN_ENTRYPOINT=./cmd
+BIN_SRC=./cmd
 BUILD_DIR=./build
-WORKFLOW_PACKAGE=Snpt.alfredworkflow
-WORKFLOW_HELPER_BIN=snpt-alfred-workflow
-WORKFLOW_HELPER_SRC_DIR=./workflow-helper/src/
-RESOURCES_DIR=./resources
+RESOURCES_DIR =./resources
+WORKFLOW_PKG=Snpt.alfredworkflow
 
 .PHONY: default
 default: build
 
 .PHONY: test
 test:
-	go test -v $(WORKFLOW_HELPER_SRC_DIR)/...
+	go test -v $(BIN_SRC)/...
 
 .PHONY: lint
 lint:
 	gometalinter \
-		--disable=errcheck \
+		--enable=misspell \
 		--enable=gofmt \
-		$(WORKFLOW_HELPER_SRC_DIR)
+		--deadline=120s \
+		$(BIN_SRC)/...
 
 .PHONY: build-helper
 build-helper: clean
-	GOOS=darwin GOARCH=amd64 go build -o $(BUILD_DIR)/$(WORKFLOW_HELPER_BIN) $(WORKFLOW_HELPER_SRC_DIR)
+	GOOS=darwin GOARCH=amd64 go build -o $(BUILD_DIR)/$(BIN) $(BIN_ENTRYPOINT)
 
 .PHONY: build-workflow
 build-workflow: build-helper
-	cp resources/* $(BUILD_DIR)
-	cd $(BUILD_DIR) && zip -rq $(WORKFLOW_PACKAGE) *
+	cp $(RESOURCES_DIR)/* $(BUILD_DIR)
+	cd $(BUILD_DIR) && zip -rq $(WORKFLOW_PKG) *
 
 .PHONY: build
 build: build-workflow
@@ -45,4 +47,4 @@ install:
 
 .PHONY: fmt
 fmt:
-	go fmt $(WORKFLOW_HELPER_SRC_DIR)/...
+	go fmt $(BIN_SRC)/...
