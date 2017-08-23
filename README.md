@@ -5,13 +5,13 @@
 [![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt-alfred-workflow/total.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
 [![License](https://img.shields.io/github/license/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
 
-An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/mike182uk/snpt-go).
+An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/mike182uk/snpt).
 
 ![](example.gif)
 
 ## Prerequisites
 
-- [Snpt](https://github.com/mike182uk/snpt-go)
+- [Snpt](https://github.com/mike182uk/snpt)
 - [fzf](https://github.com/junegunn/fzf)
 
 ## Installation

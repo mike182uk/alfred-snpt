@@ -1,4 +1,4 @@
-package main
+package copy
 
 import (
 	"fmt"
@@ -7,20 +7,21 @@ import (
 	"strings"
 )
 
-func copyCommand(cliArgs []string, snptBin string) {
-	if len(cliArgs) < 2 {
+// Run executes the copy command
+func Run(args []string, snptBin string) {
+	if len(args) < 2 {
 		fmt.Print("Usage: snpt-alfred-workflow copy <snippet>")
 
 		os.Exit(1)
 	}
 
 	snptCpCmd := exec.Command(snptBin, "cp") // #nosec
-	snptCpCmd.Stdin = strings.NewReader(cliArgs[1])
+	snptCpCmd.Stdin = strings.NewReader(args[1])
 
 	err := snptCpCmd.Run()
 
 	if err != nil {
-		// @TODO do something useful with error
+		fmt.Printf("Failed to run: snpt cp %s", args[1])
 
 		os.Exit(1)
 	}
