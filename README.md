@@ -47,7 +47,7 @@ If you have installed `snpt` / `fzf` to a different location you will need to mo
 3. Double click on the `Script Filter` node
 4. In the script field, you should see `export PATH=/usr/local/bin/:$PATH` at the top of the field. Modify this to include your path for `snpt` / `fzf`:
 
-```
+```sh
 export PATH=/usr/local/bin/:/my/custom/path/bin/:$PATH
 ```
 
