@@ -1,13 +1,9 @@
 language: go
 
 go:
-  - 1.8
-  - tip
-
-sudo: false
+  - 1.12
 
 before_script:
-  - make install-env-deps
   - make install
 
 script:
@@ -17,10 +13,6 @@ script:
 
 after_success:
   - if [ -n "$TRAVIS_TAG" ]; then make build; fi;
-
-matrix:
-  allow_failures:
-    - go: tip
 
 deploy:
   provider: releases

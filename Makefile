@@ -10,19 +10,18 @@ default: build
 
 .PHONY: test
 test:
-	go test -v $(BIN_SRC)/...
+	GO111MODULE=on go test -v $(BIN_SRC)/...
 
 .PHONY: lint
 lint:
-	gometalinter \
-		--enable=misspell \
-		--enable=gofmt \
-		--deadline=120s \
-		$(BIN_SRC)/...
+	GO111MODULE=on golangci-lint run $(BIN_SRC)/...
 
 .PHONY: build-helper
 build-helper: clean
-	GOOS=darwin GOARCH=amd64 go build -o $(BUILD_DIR)/$(BIN) $(BIN_ENTRYPOINT)
+	GO111MODULE=on \
+	GOOS=darwin \
+	GOARCH=amd64 \
+	go build -o $(BUILD_DIR)/$(BIN) $(BIN_ENTRYPOINT)
 
 .PHONY: build-workflow
 build-workflow: build-helper
@@ -36,14 +35,13 @@ build: build-workflow
 clean:
 	rm -rf $(BUILD_DIR)
 
-.PHONY: install-env-deps
-install-env-deps:
-	go get -u github.com/alecthomas/gometalinter
-	gometalinter --install
+.PHONY: install-tools
+install-tools:
+	GO111MODULE=on \
+	go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 
 .PHONY: install
-install:
-	go get -u github.com/stretchr/testify/assert
+install: install-tools
 
 .PHONY: fmt
 fmt:

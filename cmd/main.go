@@ -36,8 +36,8 @@ func main() {
 }
 
 func checkDeps(snptBin string, fzfBin string) {
-	whichSnptCmd := exec.Command("which", snptBin) // #nosec
-	whichFzfCmd := exec.Command("which", fzfBin)   // #nosec
+	whichSnptCmd := exec.Command("which", snptBin)
+	whichFzfCmd := exec.Command("which", fzfBin)
 
 	_, err := whichSnptCmd.Output()
 

@@ -20,7 +20,7 @@ func Run(args []string, snptBin string, fzfBin string) {
 	}
 
 	// get snippets
-	snptLsCmd := exec.Command(snptBin, "ls") // #nosec
+	snptLsCmd := exec.Command(snptBin, "ls")
 
 	var snptLsCmdOut bytes.Buffer
 	snptLsCmd.Stdout = &snptLsCmdOut
@@ -34,7 +34,7 @@ func Run(args []string, snptBin string, fzfBin string) {
 	}
 
 	// search snippets
-	fzfCmd := exec.Command(fzfBin, "-f", args[1]) // #nosec
+	fzfCmd := exec.Command(fzfBin, "-f", args[1])
 	fzfCmd.Stdin = strings.NewReader(snptLsCmdOut.String())
 
 	var fzfCmdOut bytes.Buffer

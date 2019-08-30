@@ -15,7 +15,7 @@ func Run(args []string, snptBin string) {
 		os.Exit(1)
 	}
 
-	snptCpCmd := exec.Command(snptBin, "cp") // #nosec
+	snptCpCmd := exec.Command(snptBin, "cp")
 	snptCpCmd.Stdin = strings.NewReader(args[1])
 
 	err := snptCpCmd.Run()
