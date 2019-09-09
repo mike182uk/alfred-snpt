@@ -5,44 +5,50 @@ BUILD_DIR=./build
 RESOURCES_DIR =./resources
 WORKFLOW_PKG=Snpt.alfredworkflow
 
-.PHONY: default
-default: build
-
 .PHONY: test
-test:
+test: ## Run the tests
 	GO111MODULE=on go test -v $(BIN_SRC)/...
 
 .PHONY: lint
-lint:
+lint: ## Lint the soruce files
 	GO111MODULE=on golangci-lint run $(BIN_SRC)/...
 
 .PHONY: build-helper
-build-helper: clean
+build-helper: clean ## Build the helper binary
 	GO111MODULE=on \
 	GOOS=darwin \
 	GOARCH=amd64 \
 	go build -o $(BUILD_DIR)/$(BIN) $(BIN_ENTRYPOINT)
 
 .PHONY: build-workflow
-build-workflow: build-helper
+build-workflow: build-helper ## Build the Alfred workflow (will also build the helper binary)
 	cp $(RESOURCES_DIR)/* $(BUILD_DIR)
 	cd $(BUILD_DIR) && zip -rq $(WORKFLOW_PKG) *
 
 .PHONY: build
-build: build-workflow
+build: build-workflow ## Alias for 'build-workflow'
 
 .PHONY: clean
-clean:
+clean: ## Clean the workspace
 	rm -rf $(BUILD_DIR)
 
 .PHONY: install-tools
-install-tools:
+install-tools: ## Install tools required by the project
 	GO111MODULE=on \
 	go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 
 .PHONY: install
-install: install-tools
+install: install-tools ## Install project dependencies (including any required tools)
 
 .PHONY: fmt
-fmt:
+fmt: ## Format the soruce files
 	go fmt $(BIN_SRC)/...
+
+# https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
+
+.PHONY: help
+
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+
+.DEFAULT_GOAL := help
