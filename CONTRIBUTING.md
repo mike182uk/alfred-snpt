@@ -10,7 +10,7 @@ Please report issues via the issue tracker on [Github](https://github.com/mike18
 
 ## Pull Requests
 
-- **Lint changes** - Make sure you run `make lint` before committing your code.
+- **Lint & format changes** - Make sure you run `make lint` & `make fmt` before committing your code.
 
 - **Document any change in behaviour** - Make sure the README and any other relevant documentation are kept up-to-date.
 
@@ -23,26 +23,17 @@ Please report issues via the issue tracker on [Github](https://github.com/mike18
 ## Install project dependencies
 
 ```bash
-make install-env-deps
 make install
 ```
 
-You will need to do this before you make any changes.
-
-## Running the Tests
+## Running the tests
 
 ```bash
 make test
 ```
 
-## Building the Helper
+## Building the project
 
 ```bash
-make build-helper
-```
-
-## Building the Workflow
-
-```bash
-make build-workflow
+make build
 ```
