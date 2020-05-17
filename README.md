@@ -1,7 +1,7 @@
 # <img src="resources/icon.png" height="24"> Snpt Alfred Workflow
 
 [![Version](https://img.shields.io/github/release/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
-[![Build Status](https://img.shields.io/travis/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt-alfred-workflow)
+[![Build Status](https://img.shields.io/github/workflow/status/mike182uk/snpt-alfred-workflow/CI/master?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow/actions?query=workflow%3ACI)
 [![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt-alfred-workflow/total.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
 [![License](https://img.shields.io/github/license/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
 

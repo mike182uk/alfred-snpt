@@ -11,7 +11,7 @@ test: ## Run the tests
 
 .PHONY: lint
 lint: ## Lint the soruce files
-	GO111MODULE=on golangci-lint run $(BIN_SRC)/...
+	golangci-lint run $(BIN_SRC)/...
 
 .PHONY: build-helper
 build-helper: clean ## Build the helper binary
@@ -34,8 +34,7 @@ clean: ## Clean the workspace
 
 .PHONY: install-tools
 install-tools: ## Install tools required by the project
-	GO111MODULE=on \
-	go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.27.0; fi
 
 .PHONY: install
 install: install-tools ## Install project dependencies (including any required tools)
