@@ -10,7 +10,7 @@ test: ## Run the tests
 	GO111MODULE=on go test -v $(BIN_SRC)/...
 
 .PHONY: lint
-lint: ## Lint the soruce files
+lint: ## Lint the source files
 	golangci-lint run $(BIN_SRC)/...
 
 .PHONY: build-helper
@@ -40,7 +40,7 @@ install-tools: ## Install tools required by the project
 install: install-tools ## Install project dependencies (including any required tools)
 
 .PHONY: fmt
-fmt: ## Format the soruce files
+fmt: ## Format the source files
 	go fmt $(BIN_SRC)/...
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
