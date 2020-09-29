@@ -2,11 +2,11 @@
 
 Contributions are **welcome!**
 
-Contributions can be made via a Pull Request on [Github](https://github.com/mike182uk/snpt-alfred-workflow).
+Contributions can be made via a Pull Request on [GitHub](https://github.com/mike182uk/snpt-alfred-workflow).
 
 ## Reporting an Issue
 
-Please report issues via the issue tracker on [Github](https://github.com/mike182uk/snpt-alfred-workflow). For security-related issues, please email the maintainer directly.
+Please report issues via the issue tracker on [GitHub](https://github.com/mike182uk/snpt-alfred-workflow). For security-related issues, please email the maintainer directly.
 
 ## Pull Requests
 
