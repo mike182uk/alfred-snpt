@@ -17,6 +17,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -25,6 +27,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>D9A3BC29-9BC3-4F98-9EDD-E53847598768</key>
@@ -36,6 +40,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -60,19 +66,31 @@
 				<string>export PATH=/usr/local/bin/:$PATH
 
 ./snpt-alfred-workflow cp "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.script</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>5B687E67-9AD7-49B4-B38A-DE95D5C711FB</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
@@ -94,6 +112,12 @@
 
 ./snpt-alfred-workflow search "{query}"
 </string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
 				<key>title</key>
 				<string>Search for a snippet</string>
 				<key>type</key>
@@ -106,7 +130,7 @@
 			<key>uid</key>
 			<string>A3EF2582-0CAB-4F4D-BED9-E4A57A52EDC7</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -115,11 +139,7 @@
 				<false/>
 				<key>onlyshowifquerypopulated</key>
 				<false/>
-				<key>output</key>
-				<integer>0</integer>
 				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
 				<false/>
 				<key>text</key>
 				<string>{query} copied to the clipboard</string>
@@ -131,7 +151,7 @@
 			<key>uid</key>
 			<string>1030000E-AB0F-4B96-A4E4-3083D440CA5F</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -144,6 +164,10 @@
 				<string>export PATH=/usr/local/bin/:$PATH
 
 ./snpt-alfred-workflow title "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -152,34 +176,46 @@
 			<key>uid</key>
 			<string>D9A3BC29-9BC3-4F98-9EDD-E53847598768</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Find a snippet using snpt (https://github.com/mike182uk/snpt)</string>
 	<key>uidata</key>
 	<dict>
 		<key>1030000E-AB0F-4B96-A4E4-3083D440CA5F</key>
 		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
 			<key>ypos</key>
 			<real>140</real>
 		</dict>
 		<key>5B687E67-9AD7-49B4-B38A-DE95D5C711FB</key>
 		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
 		<key>A3EF2582-0CAB-4F4D-BED9-E4A57A52EDC7</key>
 		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
 		<key>D9A3BC29-9BC3-4F98-9EDD-E53847598768</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>140</real>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>2.0.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/mike182uk/snpt-alfred-workflow</string>
 </dict>

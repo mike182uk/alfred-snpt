@@ -20,15 +20,15 @@ jobs:
       - name: Setup go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.12
+          go-version: 1.15
 
       - name: Setup project
         run: make install
 
       - name: Run linter
-        uses: golangci/golangci-lint-action@v1
+        uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.27
+          version: v1.32
 
       - name: Run tests
         run: make test
