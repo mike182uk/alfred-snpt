@@ -7,7 +7,7 @@ WORKFLOW_PKG=Snpt.alfredworkflow
 
 .PHONY: test
 test: ## Run the tests
-	GO111MODULE=on go test -v $(BIN_SRC)/...
+	go test -v $(BIN_SRC)/...
 
 .PHONY: lint
 lint: ## Lint the source files
@@ -15,7 +15,6 @@ lint: ## Lint the source files
 
 .PHONY: build-helper
 build-helper: clean ## Build the helper binary
-	GO111MODULE=on \
 	GOOS=darwin \
 	GOARCH=amd64 \
 	go build -o $(BUILD_DIR)/$(BIN) $(BIN_ENTRYPOINT)
@@ -34,10 +33,11 @@ clean: ## Clean the workspace
 
 .PHONY: install-tools
 install-tools: ## Install tools required by the project
-	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.32.0; fi
+	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.37.1; fi
 
 .PHONY: install
 install: install-tools ## Install project dependencies (including any required tools)
+	go mod download
 
 .PHONY: fmt
 fmt: ## Format the source files
