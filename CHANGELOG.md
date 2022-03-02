@@ -3,6 +3,7 @@
 ## 3.0.0
 
 - Rename to `alfred-snpt`
+- Remove `fzf` requirement
 
 ## 2.0.1
 

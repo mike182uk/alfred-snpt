@@ -12,7 +12,6 @@ An [Alfred](https://www.alfredapp.com/) workflow for [snpt](https://github.com/m
 ## Prerequisites
 
 - [snpt](https://github.com/mike182uk/snpt)
-- [fzf](https://github.com/junegunn/fzf)
 
 ## Installation
 
@@ -24,15 +23,15 @@ Download the latest version of the workflow from  [here](https://github.com/mike
 2. Type `snpt` and press enter or tab
 3. Start typing the name of the snippet you want to copy
 4. Use the up / down key to navigate to the snippet you want to copy
-5. Press enter on the snippet you want to copy
+5. Press enter on the snippet that you want to copy
 
 A notification will be displayed once the snippet has been copied to the clipboard.
 
 ## Troubleshooting
 
-### The workflow is reporting that `snpt` or `fzf` can not be found
+### The workflow is reporting that `snpt` can not be found
 
-The workflow will search for `snpt` / `fzf` in:
+The workflow will search for `snpt` in:
 
 - `/usr/local/bin/`
 - `/usr/bin`
@@ -40,12 +39,12 @@ The workflow will search for `snpt` / `fzf` in:
 - `/usr/sbin`
 - `/sbin`
 
-If you have installed `snpt` / `fzf` to a different location you will need to modify the workflow to use this path:
+If you have installed `snpt` to a different location you will need to modify the workflow to use this path:
 
 1. Go to Alfred preferences
 2. Select the `snpt` workflow
 3. Double click on the `Script Filter` node
-4. In the script field, you should see `export PATH=/usr/local/bin/:$PATH` at the top of the field. Modify this to include your path for `snpt` / `fzf`:
+4. In the script field, you should see `export PATH=/usr/local/bin/:$PATH` at the top of the field. Modify this to include your path for `snpt`:
 
 ```sh
 export PATH=/usr/local/bin/:/my/custom/path/bin/:$PATH

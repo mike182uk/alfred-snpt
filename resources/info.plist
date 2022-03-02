@@ -3,11 +3,47 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.mike182uk.snpt.workflow</string>
-	<key>category</key>
-	<string>Productivity</string>
+	<string>__BUNDLE_ID__</string>
 	<key>connections</key>
 	<dict>
+		<key>10744F84-DC8C-4CD2-B59C-7058298B8D79</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D3E5B18B-D018-4D0F-98C6-65B1ADF1394F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>8484BE02-6270-40E9-BB1D-90AE1743B47C</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1030000E-AB0F-4B96-A4E4-3083D440CA5F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5B687E67-9AD7-49B4-B38A-DE95D5C711FB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>10744F84-DC8C-4CD2-B59C-7058298B8D79</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>A3EF2582-0CAB-4F4D-BED9-E4A57A52EDC7</key>
 		<array>
 			<dict>
@@ -20,41 +56,39 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>D9A3BC29-9BC3-4F98-9EDD-E53847598768</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>D9A3BC29-9BC3-4F98-9EDD-E53847598768</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>1030000E-AB0F-4B96-A4E4-3083D440CA5F</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
 		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Michael Barrett (@mike182uk)</string>
 	<key>description</key>
-	<string>Find a snippet using snpt</string>
+	<string>Find a snippet using snpt and copy it to the clipboard</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
 	<string>snpt</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Snippet Copy Failed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D3E5B18B-D018-4D0F-98C6-65B1ADF1394F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -65,13 +99,13 @@
 				<key>script</key>
 				<string>export PATH=/usr/local/bin/:$PATH
 
-./alfred-snpt cp "{query}"</string>
+echo "{query}" | snpt cp</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>5</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -110,14 +144,14 @@
 				<key>script</key>
 				<string>export PATH=/usr/local/bin/:$PATH
 
-./alfred-snpt search "{query}"
+./alfred-snpt "$1"
 </string>
 				<key>scriptargtype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Start typing the name of the snippet</string>
 				<key>title</key>
 				<string>Search for a snippet</string>
 				<key>type</key>
@@ -135,6 +169,36 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>failed</string>
+						<key>outputlabel</key>
+						<string>{query}</string>
+						<key>uid</key>
+						<string>8484BE02-6270-40E9-BB1D-90AE1743B47C</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>10744F84-DC8C-4CD2-B59C-7058298B8D79</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -142,7 +206,7 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>{query} copied to the clipboard</string>
+				<string>{query}</string>
 				<key>title</key>
 				<string>Snippet Copied</string>
 			</dict>
@@ -153,69 +217,49 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>export PATH=/usr/local/bin/:$PATH
-
-./alfred-snpt title "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>D9A3BC29-9BC3-4F98-9EDD-E53847598768</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
 	</array>
 	<key>readme</key>
-	<string>Find a snippet using snpt (https://github.com/mike182uk/snpt)</string>
+	<string>Find a snippet using snpt (https://github.com/mike182uk/snpt) and copy it to the clipboard</string>
 	<key>uidata</key>
 	<dict>
 		<key>1030000E-AB0F-4B96-A4E4-3083D440CA5F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<integer>870</integer>
 			<key>ypos</key>
-			<real>140</real>
+			<integer>480</integer>
+		</dict>
+		<key>10744F84-DC8C-4CD2-B59C-7058298B8D79</key>
+		<dict>
+			<key>xpos</key>
+			<integer>705</integer>
+			<key>ypos</key>
+			<integer>410</integer>
 		</dict>
 		<key>5B687E67-9AD7-49B4-B38A-DE95D5C711FB</key>
 		<dict>
 			<key>xpos</key>
-			<integer>700</integer>
+			<integer>505</integer>
 			<key>ypos</key>
-			<real>10</real>
+			<integer>390</integer>
 		</dict>
 		<key>A3EF2582-0CAB-4F4D-BED9-E4A57A52EDC7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>250</integer>
 			<key>ypos</key>
-			<real>10</real>
+			<integer>390</integer>
 		</dict>
-		<key>D9A3BC29-9BC3-4F98-9EDD-E53847598768</key>
+		<key>D3E5B18B-D018-4D0F-98C6-65B1ADF1394F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>865</integer>
 			<key>ypos</key>
-			<real>140</real>
+			<integer>300</integer>
 		</dict>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>3.0.0</string>
+	<string>__VERSION__</string>
 	<key>webaddress</key>
 	<string>https://github.com/mike182uk/alfred-snpt</string>
 </dict>

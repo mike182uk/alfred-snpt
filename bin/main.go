@@ -1,57 +1,106 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	"bytes"
 	"os/exec"
+	"regexp"
+	"strings"
 
-	copyCmd "alfred-snpt/cmd/command/copy"
-	searchCmd "alfred-snpt/cmd/command/search"
-	titleCmd "alfred-snpt/cmd/command/title"
-	alfredHelper "alfred-snpt/cmd/helper/alfred"
+	aw "github.com/deanishe/awgo"
 )
 
-const snptBin = "snpt"
-const fzfBin = "fzf"
+var (
+	wf      *aw.Workflow
+	errIcon *aw.Icon = &aw.Icon{Value: "icon-error.png"}
+)
 
-func main() {
-	args := os.Args[1:]
+func getSnippets() (snippets []string, err error) {
+	var cmdOut bytes.Buffer
 
-	if len(args) == 0 {
-		fmt.Print("Usage: alfred-snpt <search|cp|title>")
+	cmd := exec.Command("snpt", "ls")
+	cmd.Stdout = &cmdOut
 
-		os.Exit(1)
+	err = cmd.Run()
+
+	if err != nil {
+		return
 	}
 
-	checkDeps(snptBin, fzfBin)
+	snippets = strings.Split(cmdOut.String(), "\n")
 
-	switch args[0] {
-	case "search":
-		searchCmd.Run(args, snptBin, fzfBin)
-	case "cp":
-		copyCmd.Run(args, snptBin)
-	case "title":
-		titleCmd.Run(args)
-	}
+	return
 }
 
-func checkDeps(snptBin string, fzfBin string) {
-	whichSnptCmd := exec.Command("which", snptBin)
-	whichFzfCmd := exec.Command("which", fzfBin)
+func getTitle(s string) string {
+	i := strings.Index(s, " - ")
 
-	_, err := whichSnptCmd.Output()
-
-	if err != nil {
-		fmt.Print(alfredHelper.GenerateErrorItemList("snpt was not found", "Make sure you have installed snpt to use this workflow."))
-
-		os.Exit(1)
+	if i == -1 {
+		return ""
 	}
 
-	_, err = whichFzfCmd.Output()
+	return s[0:i]
+}
+
+func getSubtitle(s string) string {
+	r := regexp.MustCompile(`[[A-Za-z0-9]+]`)
+	s = strings.TrimRight(r.ReplaceAllString(s, ""), " ")
+	i := strings.LastIndex(s, " - ")
+
+	if i == -1 {
+		return ""
+	}
+
+	return s[(i + 3):]
+}
+
+func run() {
+	// Retrieve snippets
+	snippets, err := getSnippets()
 
 	if err != nil {
-		fmt.Print(alfredHelper.GenerateErrorItemList("fzf was not found", "Make sure you have installed fzf to use this workflow."))
+		wf.NewItem("An error occured whilst executing snpt").
+			Subtitle(err.Error()).
+			Icon(errIcon)
 
-		os.Exit(1)
+		wf.SendFeedback()
+
+		return
 	}
+
+	// Build items
+	for _, snippet := range snippets {
+		wf.NewItem(snippet).
+			Title(getTitle(snippet)).
+			Subtitle(getSubtitle(snippet)).
+			Arg(snippet).
+			Valid(true)
+	}
+
+	// Filter items
+	args := wf.Args()
+
+	if len(args) > 0 {
+		query := args[0]
+
+		if query != "" {
+			wf.Filter(query)
+		}
+	}
+
+	// Send Feedback
+	if wf.IsEmpty() {
+		wf.Feedback.Clear()
+
+		wf.NewItem("No matching snippets found").
+			Subtitle("Try updating your query").
+			Icon(errIcon)
+	}
+
+	wf.SendFeedback()
+}
+
+func main() {
+	wf = aw.New()
+
+	wf.Run(run)
 }

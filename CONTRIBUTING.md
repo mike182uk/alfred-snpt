@@ -26,13 +26,13 @@ Please report issues via the issue tracker on [GitHub](https://github.com/mike18
 make install
 ```
 
-## Running the tests
+## Set up the environment for development
 
 ```bash
-make test
+eval $(make env)
 ```
 
-## Building the project
+## Build the project
 
 ```bash
 make build
