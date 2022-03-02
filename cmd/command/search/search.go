@@ -8,13 +8,13 @@ import (
 	"os/exec"
 	"strings"
 
-	alfredHelper "github.com/mike182uk/snpt-alfred-workflow/cmd/helper/alfred"
+	alfredHelper "github.com/mike182uk/alfred-snpt/cmd/helper/alfred"
 )
 
 // Run executes the search command
 func Run(args []string, snptBin string, fzfBin string) {
 	if len(args) < 2 {
-		fmt.Print("Usage: snpt-alfred-workflow search <query>")
+		fmt.Print("Usage: alfred-snpt search <query>")
 
 		os.Exit(1)
 	}

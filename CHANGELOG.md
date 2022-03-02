@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0
+
+- Rename to `alfred-snpt`
+
 ## 2.0.1
 
 - Misc refactoring

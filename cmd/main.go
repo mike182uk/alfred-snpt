@@ -5,10 +5,10 @@ import (
 	"os"
 	"os/exec"
 
-	copyCmd "github.com/mike182uk/snpt-alfred-workflow/cmd/command/copy"
-	searchCmd "github.com/mike182uk/snpt-alfred-workflow/cmd/command/search"
-	titleCmd "github.com/mike182uk/snpt-alfred-workflow/cmd/command/title"
-	alfredHelper "github.com/mike182uk/snpt-alfred-workflow/cmd/helper/alfred"
+	copyCmd "github.com/mike182uk/alfred-snpt/cmd/command/copy"
+	searchCmd "github.com/mike182uk/alfred-snpt/cmd/command/search"
+	titleCmd "github.com/mike182uk/alfred-snpt/cmd/command/title"
+	alfredHelper "github.com/mike182uk/alfred-snpt/cmd/helper/alfred"
 )
 
 const snptBin = "snpt"
@@ -18,7 +18,7 @@ func main() {
 	args := os.Args[1:]
 
 	if len(args) == 0 {
-		fmt.Print("Usage: snpt-alfred-workflow <search|cp|title>")
+		fmt.Print("Usage: alfred-snpt <search|cp|title>")
 
 		os.Exit(1)
 	}

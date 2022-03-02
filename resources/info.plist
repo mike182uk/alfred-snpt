@@ -52,7 +52,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Snpt</string>
+	<string>snpt</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -65,7 +65,7 @@
 				<key>script</key>
 				<string>export PATH=/usr/local/bin/:$PATH
 
-./snpt-alfred-workflow cp "{query}"</string>
+./alfred-snpt cp "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -110,7 +110,7 @@
 				<key>script</key>
 				<string>export PATH=/usr/local/bin/:$PATH
 
-./snpt-alfred-workflow search "{query}"
+./alfred-snpt search "{query}"
 </string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -163,7 +163,7 @@
 				<key>script</key>
 				<string>export PATH=/usr/local/bin/:$PATH
 
-./snpt-alfred-workflow title "{query}"</string>
+./alfred-snpt title "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -215,8 +215,8 @@
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2.0.1</string>
+	<string>3.0.0</string>
 	<key>webaddress</key>
-	<string>https://github.com/mike182uk/snpt-alfred-workflow</string>
+	<string>https://github.com/mike182uk/alfred-snpt</string>
 </dict>
 </plist>

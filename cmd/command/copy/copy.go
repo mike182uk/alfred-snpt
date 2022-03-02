@@ -10,7 +10,7 @@ import (
 // Run executes the copy command
 func Run(args []string, snptBin string) {
 	if len(args) < 2 {
-		fmt.Print("Usage: snpt-alfred-workflow copy <snippet>")
+		fmt.Print("Usage: alfred-snpt copy <snippet>")
 
 		os.Exit(1)
 	}

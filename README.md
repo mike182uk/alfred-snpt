@@ -1,22 +1,22 @@
-# <img src="resources/icon.png" height="24"> Snpt Alfred Workflow
+# <img src="resources/icon.png" height="24"> alfred-snpt
 
-[![Version](https://img.shields.io/github/release/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
-[![Build Status](https://img.shields.io/github/workflow/status/mike182uk/snpt-alfred-workflow/CI/master?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow/actions?query=workflow%3ACI)
-[![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt-alfred-workflow/total.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
-[![License](https://img.shields.io/github/license/mike182uk/snpt-alfred-workflow.svg?style=flat-square)](https://github.com/mike182uk/snpt-alfred-workflow)
+[![Version](https://img.shields.io/github/release/mike182uk/alfred-snpt.svg?style=flat-square)](https://github.com/mike182uk/alfred-snpt)
+[![Build Status](https://img.shields.io/github/workflow/status/mike182uk/alfred-snpt/CI/master?style=flat-square)](https://github.com/mike182uk/alfred-snpt/actions?query=workflow%3ACI)
+[![Downloads](https://img.shields.io/github/downloads/mike182uk/alfred-snpt/total.svg?style=flat-square)](https://github.com/mike182uk/alfred-snpt)
+[![License](https://img.shields.io/github/license/mike182uk/alfred-snpt.svg?style=flat-square)](https://github.com/mike182uk/alfred-snpt)
 
-An [Alfred](https://www.alfredapp.com/) workflow for [Snpt](https://github.com/mike182uk/snpt).
+An [Alfred](https://www.alfredapp.com/) workflow for [snpt](https://github.com/mike182uk/snpt).
 
 ![](example.gif)
 
 ## Prerequisites
 
-- [Snpt](https://github.com/mike182uk/snpt)
+- [snpt](https://github.com/mike182uk/snpt)
 - [fzf](https://github.com/junegunn/fzf)
 
 ## Installation
 
-Download the latest version of the workflow from  [here](https://github.com/mike182uk/snpt-alfred-workflow/releases).
+Download the latest version of the workflow from  [here](https://github.com/mike182uk/alfred-snpt/releases).
 
 ## Usage
 
@@ -43,7 +43,7 @@ The workflow will search for `snpt` / `fzf` in:
 If you have installed `snpt` / `fzf` to a different location you will need to modify the workflow to use this path:
 
 1. Go to Alfred preferences
-2. Select the Snpt workflow
+2. Select the `snpt` workflow
 3. Double click on the `Script Filter` node
 4. In the script field, you should see `export PATH=/usr/local/bin/:$PATH` at the top of the field. Modify this to include your path for `snpt` / `fzf`:
 

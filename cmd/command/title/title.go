@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	snippetHelper "github.com/mike182uk/snpt-alfred-workflow/cmd/helper/snippet"
+	snippetHelper "github.com/mike182uk/alfred-snpt/cmd/helper/snippet"
 )
 
 // Run executes the title command
 func Run(args []string) {
 	if len(args) < 2 {
-		fmt.Print("Usage: snpt-alfred-workflow title <snippet>")
+		fmt.Print("Usage: alfred-snpt title <snippet>")
 
 		os.Exit(1)
 	}
