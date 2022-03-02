@@ -1,26 +1,25 @@
 BIN=alfred-snpt
-BIN_ENTRYPOINT=./cmd
-BIN_SRC=./cmd
+BIN_SRC=./bin
 BUILD_DIR=./build
 RESOURCES_DIR =./resources
 WORKFLOW_PKG=snpt.alfredworkflow
 
 .PHONY: test
 test: ## Run the tests
-	go test -v $(BIN_SRC)/...
+	cd $(BIN_SRC) && go test -v ./...
 
 .PHONY: lint
 lint: ## Lint the source files
-	golangci-lint run $(BIN_SRC)/...
+	cd $(BIN_SRC) && golangci-lint run ./...
 
-.PHONY: build-helper
-build-helper: clean ## Build the helper binary
+.PHONY: build-bin
+build-bin: clean ## Build the binary
 	GOOS=darwin \
 	GOARCH=amd64 \
-	go build -o $(BUILD_DIR)/$(BIN) $(BIN_ENTRYPOINT)
+	cd $(BIN_SRC) && go build -o .$(BUILD_DIR)/$(BIN) ./
 
 .PHONY: build-workflow
-build-workflow: build-helper ## Build the Alfred workflow (will also build the helper binary)
+build-workflow: build-bin ## Build the Alfred workflow (will also build the binary)
 	cp $(RESOURCES_DIR)/* $(BUILD_DIR)
 	cd $(BUILD_DIR) && zip -rq $(WORKFLOW_PKG) *
 
@@ -37,11 +36,11 @@ install-tools: ## Install tools required by the project
 
 .PHONY: install
 install: install-tools ## Install project dependencies (including any required tools)
-	go mod download
+	cd $(BIN_SRC) && go mod download
 
 .PHONY: fmt
 fmt: ## Format the source files
-	go fmt $(BIN_SRC)/...
+	cd $(BIN_SRC) && go fmt ./...
 
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 

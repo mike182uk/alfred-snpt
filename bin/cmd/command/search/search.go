@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"strings"
 
-	alfredHelper "github.com/mike182uk/alfred-snpt/cmd/helper/alfred"
+	alfredHelper "alfred-snpt/cmd/helper/alfred"
 )
 
 // Run executes the search command

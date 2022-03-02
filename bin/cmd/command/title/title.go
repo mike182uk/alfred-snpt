@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	snippetHelper "github.com/mike182uk/alfred-snpt/cmd/helper/snippet"
+	snippetHelper "alfred-snpt/cmd/helper/snippet"
 )
 
 // Run executes the title command

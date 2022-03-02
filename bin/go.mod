@@ -1,4 +1,4 @@
-module github.com/mike182uk/alfred-snpt
+module alfred-snpt
 
 go 1.17
 

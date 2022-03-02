@@ -3,7 +3,7 @@ package helper
 import (
 	"encoding/xml"
 
-	snippetHelper "github.com/mike182uk/alfred-snpt/cmd/helper/snippet"
+	snippetHelper "alfred-snpt/cmd/helper/snippet"
 )
 
 type itemList struct {

@@ -5,10 +5,10 @@ import (
 	"os"
 	"os/exec"
 
-	copyCmd "github.com/mike182uk/alfred-snpt/cmd/command/copy"
-	searchCmd "github.com/mike182uk/alfred-snpt/cmd/command/search"
-	titleCmd "github.com/mike182uk/alfred-snpt/cmd/command/title"
-	alfredHelper "github.com/mike182uk/alfred-snpt/cmd/helper/alfred"
+	copyCmd "alfred-snpt/cmd/command/copy"
+	searchCmd "alfred-snpt/cmd/command/search"
+	titleCmd "alfred-snpt/cmd/command/title"
+	alfredHelper "alfred-snpt/cmd/helper/alfred"
 )
 
 const snptBin = "snpt"
