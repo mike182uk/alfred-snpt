@@ -3,6 +3,7 @@
 ## 3.0.0
 
 - Rename to `alfred-snpt`
+- Rework internals to use https://github.com/deanishe/awgo
 - Remove `fzf` requirement
 
 ## 2.0.1
