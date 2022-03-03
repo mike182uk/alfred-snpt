@@ -7,7 +7,7 @@
 
 An [Alfred](https://www.alfredapp.com/) workflow for [snpt](https://github.com/mike182uk/snpt).
 
-![](example.gif)
+![](docs/example.gif)
 
 ## Prerequisites
 
@@ -16,6 +16,8 @@ An [Alfred](https://www.alfredapp.com/) workflow for [snpt](https://github.com/m
 ## Installation
 
 Download the latest version of the workflow from  [here](https://github.com/mike182uk/alfred-snpt/releases).
+
+Alternatively you can build the workflow yourself following the instructions below.
 
 ## Usage
 
@@ -27,7 +29,43 @@ Download the latest version of the workflow from  [here](https://github.com/mike
 
 A notification will be displayed once the snippet has been copied to the clipboard.
 
+## Building the workflow yourself
+
+1. Ensure you have `Go 1.17` installed
+2. Clone this repo and navigate into the directory
+3. Run `make install` to install the project dependencies
+4. Run `make build` to build the workflow
+
+The workflow should be built (`snpt.alfredworkflow`) and placed in the `build` directory.
+
 ## Troubleshooting
+
+### I'am seeing the error: "alfred-snpt" cannot be opened because the developer cannot be verified
+
+<div align="center">
+  <img src="docs/error-1.png" height="40%" width="40%" />
+</div>
+
+You will most likely see this error if you have downloaded the workflow from GitHub. This error is because there is a binary that is packaged with the workflow that was compiled on the build server and has not been [notarized](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution).
+
+Don't worry, this binary is not doing anything nefarious, you can verify the source yourself in the `bin` directory.
+
+To get the workflow working: 
+
+- Press the `cancel` button on the dialog
+- Go to `System Preferences -> Security & Privacy` and allow `alfred-snpt` to run
+<div align="center">
+  <img src="docs/error-2.png" height="60%" width="60%" />
+</div>
+
+- Try and run the workflow again and if you see the following error, press the `open` button on the dialog
+<div align="center">
+  <img src="docs/error-3.png" height="40%" width="40%" />
+</div>
+
+From now on you should be able to run the workflow without any problems 🎉
+
+**Do not do any of the above if you have not downloaded the workflow from GitHub** - Follow the instructions on how to build workflow yourself.
 
 ### The workflow is reporting that `snpt` can not be found
 
