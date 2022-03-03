@@ -32,6 +32,7 @@ build-bin: clean ## Build the binary
 .PHONY: build-workflow
 build-workflow: build-bin ## Build the Alfred workflow (will also build the binary)
 	cp $(RESOURCES_DIR)/* $(BUILD_DIR)
+	chmod +x $(BUILD_DIR)/$(BIN_NAME)
 	sed -i '' 's/__BUNDLE_ID__/$(WORKFLOW_BUNDLE_ID)/g' $(BUILD_DIR)/info.plist
 	sed -i '' 's/__VERSION__/$(WORKFLOW_VERSION)/g' $(BUILD_DIR)/info.plist
 	cd $(BUILD_DIR) && zip -rq $(WORKFLOW_PKG_NAME) *
