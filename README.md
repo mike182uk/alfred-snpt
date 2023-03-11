@@ -1,7 +1,7 @@
 # <img src="resources/icon.png" height="24"> alfred-snpt
 
 [![Version](https://img.shields.io/github/release/mike182uk/alfred-snpt.svg?style=flat-square)](https://github.com/mike182uk/alfred-snpt)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/mike182uk/alfred-snpt/ci.yml?branch=master&style=flat-square)](https://github.com/mike182uk/alfred-snpt/actions?query=workflow%3ACI)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mike182uk/alfred-snpt/ci.yml?branch=main&style=flat-square)](https://github.com/mike182uk/alfred-snpt/actions?query=workflow%3ACI)
 [![Downloads](https://img.shields.io/github/downloads/mike182uk/alfred-snpt/total.svg?style=flat-square)](https://github.com/mike182uk/alfred-snpt)
 [![License](https://img.shields.io/github/license/mike182uk/alfred-snpt.svg?style=flat-square)](https://github.com/mike182uk/alfred-snpt)
 
