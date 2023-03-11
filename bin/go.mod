@@ -1,6 +1,6 @@
 module alfred-snpt
 
-go 1.17
+go 1.20
 
 require github.com/deanishe/awgo v0.29.1
 

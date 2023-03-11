@@ -46,7 +46,7 @@ clean: ## Clean the workspace
 
 .PHONY: install-tools
 install-tools: ## Install tools required by the project
-	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.44.2; fi
+	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.51.2; fi
 
 .PHONY: install
 install: install-tools ## Install project dependencies (including any required tools)
