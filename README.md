@@ -1,3 +1,5 @@
+#### ⚠️ This project is no longer maintained
+
 # <img src="resources/icon.png" height="24"> alfred-snpt
 
 [![Version](https://img.shields.io/github/release/mike182uk/alfred-snpt.svg?style=flat-square)](https://github.com/mike182uk/alfred-snpt)
